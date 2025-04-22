@@ -1,8 +1,15 @@
-<div>
-  @if (currentServerStatus === 'online') {
+<div
+  [class]="{
+    status: true,
+    'status-online': currentStatus === 'online',
+    'status-offline': currentStatus === 'offline',
+    'staus-unknown': currentStatus === 'unknown'
+  }"
+>
+  @if (currentStatus === 'online') {
   <p>Servers are online</p>
   <p>All systems are operational.</p>
-  } @else if (currentServerStatus === 'offline') {
+  } @else if (currentStatus === 'offline') {
   <p>Servers are offline</p>
   <p>Functionality should be restored soon.</p>
   } @else {
